@@ -6,6 +6,7 @@ dependencies {
   "RageUI",
 }
 
+
 client_scripts {
     "@RageUI/src/RMenu.lua",
     "@RageUI/src/menu/RageUI.lua",
@@ -39,10 +40,10 @@ client_scripts {
 }
 
 server_scripts {
+    "@vrp/lib/utils.lua",
     "sv_license.lua",
 }
 
 shared_scripts {
   "config.lua"
 }
-

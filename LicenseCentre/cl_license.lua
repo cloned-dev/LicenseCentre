@@ -1,4 +1,4 @@
-RMenu.Add('LicenseCentre', 'main', RageUI.CreateMenu("", "License Center", 1350, 50, "licenses", "license"))
+RMenu.Add('LicenseCentre', 'main', RageUI.CreateMenu("License Centre", "~b~Cloned's License Center", 1350, 50))
 
 
 RageUI.CreateWhile(1.0, RMenu:Get('LicenseCentre', 'main'), nil, function()
@@ -25,15 +25,17 @@ isInMenu = false
 Citizen.CreateThread(function() 
     while true do
             local v1 = cfg.coords
-
-            if isInArea(v1, 100.0) then 
-                DrawMarker(2, v1+1 - 0.98, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 255, 255, 255, 150, 0, 0, 0, 0, 0, 0, 0)
+            
+            if cfg.marker == true then
+                if isInArea(v1, 100.0) then 
+                    DrawMarker(2, v1+1 - 0.98, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 255, 255, 255, 150, 0, 0, 0, 0, 0, 0, 0)
+                end
             end
 
             if isInMenu == false then
 
                 if isInArea(v1, 1.4) then 
-                    alert('Press ~INPUT_VEH_HORN~ to access ~b~License Centre')
+                    alert('Press ~INPUT_VEH_HORN~ to access License Centre')
                     if IsControlJustPressed(0, 51) then 
                         currentAmmunition = k
                         RageUI.Visible(RMenu:Get("LicenseCentre", "main"), true)

@@ -2,8 +2,9 @@ cfg = {}
 
 cfg.perm = "player.phone" -- [Player.Phone By Deafult]
 cfg.currency = "£"
+cfg.marker = true
 
-cfg.coords = vector3(-533.38562011719,-193.36470031738,38.222408294678)
+cfg.coords = vector3(-266.07489013672,-961.10424804688,31.223123550415)
 
 cfg.licenses = {
     jobs = {
