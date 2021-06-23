@@ -4,17 +4,21 @@ vRP = Proxy.getInterface("vRP")
 vRPclient = Tunnel.getInterface("vRP", "LicenseCentre")
 
 RegisterServerEvent("LicenseCentre:BuyGroup")
-AddEventHandler('LicenseCentre:BuyGroup', function(price, job, name)
+AddEventHandler('LicenseCentre:BuyGroup', function(price, job)
     local source = source
-    userid = vRP.getUserId({source})
-    if vRP.tryPayment({userid, price}) then
-        
-        vRP.addUserGroup({userid,job})
-
-        vRPclient.notify(source, {"~g~Purchased " .. name .. " License for "..cfg.currency..tostring(price) .. " ❤️"})
-
-        else 
-        vRPclient.notify(source, {"~r~Insufficient funds"})
+    local user_id = vRP.getUserId({source})
+    local group = cfg.licenses.jobs[job]
+    if group then 
+        if group.price == price then 
+            if vRP.tryPayment({user_id, price}) then
+                vRP.addUserGroup({user_id,job})
+                vRPclient.notify(source, {"~g~Purchased " .. group.name .. " License for "..cfg.currency..tostring(price) .. " ❤️"})
+            else 
+                vRPclient.notify(source, {"~r~Insufficient funds"})
+            end
+        else
+            -- oh no cheater insert ban logic here.
+        end
     end
 end)
 
