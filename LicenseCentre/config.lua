@@ -8,10 +8,9 @@ cfg.coords = vector3(-266.07489013672,-961.10424804688,31.223123550415)
 
 cfg.licenses = {
     jobs = {
-        {name = "Weed", group = "Weed", price = 500000},
-        {name = "Heroin", group = "Heroin", price = 200000},
-        {name = "LSD", group = "LSD", price = 1000000},
-
+        ["weed"] = {name = "Weed", group = "Weed", price = 500000},
+        ["heroin"] = {name = "Heroin", group = "Heroin", price = 200000},
+        ["lsd"] = {name = "LSD", group = "LSD", price = 1000000},
     }
 }
 
