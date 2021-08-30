@@ -2,7 +2,7 @@ RMenu.Add('LicenseCentre', 'main', RageUI.CreateMenu("License Centre", "~b~Clone
 RageUI.CreateWhile(1.0, RMenu:Get('LicenseCentre', 'main'), nil, function()
     RageUI.IsVisible(RMenu:Get('LicenseCentre', 'main'), true, false, true, function()
         for i , p in pairs(cfg.licenses.jobs) do 
-            RageUI.Button(p.name , nil, { RightLabel = cfg.currency .. tostring(p.price) }, true, function(Hovered, Active, Selected)
+            RageUI.Button(p.name , nil, { RightLabel = cfg.currency .. tostring(p.priceshow) }, true, function(Hovered, Active, Selected)
                 if Selected then
                     TriggerServerEvent('LicenseCentre:BuyGroup', p.price, i)
                 end
